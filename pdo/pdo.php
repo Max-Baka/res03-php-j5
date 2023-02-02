@@ -22,7 +22,7 @@ $userTab = [
     "email" => "clark.kent@test.fr"
 ];
 
-$clark = new User($userTab["firstName"], $userTab["lastName"], $userTab["email"]);
+/*$clark = new User($userTab["firstName"], $userTab["lastName"], $userTab["email"]);
 var_dump($clark);
 
 $query = $db->prepare('SELECT * FROM users LIMIT 1');
@@ -31,6 +31,19 @@ $user = $query->fetch(PDO::FETCH_ASSOC);
 var_dump($user);
 
 $newUser = new User($user["first_name"],$user["last_name"],$user["email"]);
-$newUser-> setId($user["id"]);
-var_dump($newUser);
+$newUser- se>tId($user["id"]);
+var_dump($newUser);*/
+
+$query = $db->prepare('SELECT * FROM users');
+$query ->execute();
+$user = $query->fetchAll(PDO::FETCH_ASSOC);
+var_dump($user);
+
+$newUse = [];
+foreach ($user as $usere){
+    $usere1 = new User($usere["first_name"],$usere["last_name"],$usere["email"]);
+    $usere1-> setId($usere["id"]);
+    $newUse[] = $usere1;
+}
+var_dump($newUse);
 ?>
