@@ -7,7 +7,7 @@
     private string $email;
     
    
-    private function __construct(string $firstName, string $lastName, string $email)
+    public function __construct(string $firstName, string $lastName, string $email)
     {
         $this->id = -1;
         $this->firstName = $firstName;
@@ -20,7 +20,7 @@
      return $this->id;
     }
 
-    public function setId(int $id)
+    public function setId(int $id) : void
     {
     $this->id = $id;
     }
